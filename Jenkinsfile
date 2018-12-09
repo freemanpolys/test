@@ -1,35 +1,6 @@
-pipeline {
-  agent  any
-  tools {
-    maven "Maven"
-  }
+devsMail = 'freemanpolys@gmail.com'
+/* import shared libraries */
+@Library("pipeline")_
 
-  stages {
-
-    stage('check java') {
-        steps {
-            sh "java -version"
-        }
-    }
-
-	stage('clean') {
-      steps {
-        sh 'mvn clean'
-      }
-    }
-
-    stage('backend tests') {
-      steps {
-        sh 'mvn test'
-      }
-    }
-    
-    stage('packaging') {
-        steps {
-            sh "./mvnw verify -Pprod -DskipTests"
-            archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
-        }
-    }
-
-  }
-}
+/* call function with map http://mrhaki.blogspot.com/2015/09/groovy-goodness-turn-method-parameters.html */
+mavenPipeline emails: devsMail
