@@ -1,28 +1,34 @@
-#!/usr/bin/env groovy
+pipeline {
+  tools {
+    maven "Maven"
+  }
 
-node {
+  stages {
 
     stage('check java') {
-        sh "java -version"
-    }
-
-    stage('clean') {
-        sh "chmod +x mvnw"
-        sh "./mvnw clean"
-    }
-
-    stage('backend tests') {
-        try {
-            sh "./mvnw test"
-        } catch(err) {
-            throw err
-        } finally {
-            junit '**/target/surefire-reports/TEST-*.xml'
+        steps {
+            sh "java -version"
         }
     }
 
-    stage('packaging') {
-        sh "./mvnw verify -Pprod -DskipTests"
-        archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
+	stage('clean') {
+      steps {
+        sh 'mvn clean test'
+      }
     }
+
+    stage('backend tests') {
+      steps {
+        sh 'mvn clean test'
+      }
+    }
+    
+    stage('packaging') {
+        steps {
+            sh "./mvnw verify -Pprod -DskipTests"
+            archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
+        }
+    }
+
+  }
 }
