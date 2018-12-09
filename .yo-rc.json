@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.dovea.test",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "microservice",
+    "baseName": "toto",
+    "packageName": "com.dovea.test",
+    "packageFolder": "com/dovea/test",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NjIyYmIwMDllNWZiZDUzZTI1YTg3MGE2ODRiZWU5MGI2MzMzNWM4NTk0ZmZkMzI3MTM1MmU3ZjhjZTc1ZDFhMWYyZDNhYTVmZDhiNDcxNTZhNDA5N2UxNzgyZDJkYjM2MzZlZmQ3NTMyYTdkNzFjYmE5MjFiNTZhYWE3OGFmMDQ=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
